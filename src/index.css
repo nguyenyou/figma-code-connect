@@ -1,3 +1,248 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-synthesis: none;
+  @apply font-sans text-13 leading-20;
+}
+
+/* RESET STYLES */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body,
+div,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+main,
+figure,
+figcaption,
+fieldset,
+legend {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6,   /* Headings */
+p,                        /* Paragraphs */
+ul, ol, li,               /* Lists */
+dl, dt, dd,               /* Definition lists */
+blockquote, pre,          /* Text blocks */
+form {                    /* Form wrapper */
+  margin: 0;
+}
+
+/* Reset padding */
+button,
+input,
+optgroup,
+select,
+textarea,
+fieldset,
+legend,
+ol,
+ul,
+menu,
+dialog {
+  padding: 0;
+}
+
+button {
+    background: none;
+}
+
+/* Form elements have default font-family and appearance,
+   which we don't want */
+button,
+input,
+optgroup,
+select,
+textarea {
+    appearance: none;
+    border-width: 0;
+    font: inherit;
+}
+
+/* Code-related elements have default mono fonts, but we want
+   to enforce engineers to use ours */
+code,
+kbd,
+samp {
+    font: inherit;
+}
+
+/* BASE STYLES */
+
+ul,
+ol {
+    padding-left: 0px;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* encouraging using correct heading */
+h1 {
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 36px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+h5 {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+h6 {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+small {
+    font-size: 12px;
+}
+
+/* default typography */
+body {
+    background-color: #F5F9FC;
+    color: oklch(var(--color-gray-8) / 1);
+    /* See tailwind.js > fonts for detail */
+    font-family: var(--acl-font-family, system-ui, -apple-system, Roboto, Oxygen, Cantarell, Ubuntu, 'Segoe UI', sans-serif);
+    font-size: 13px;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    line-height: 20px;
+    /* Portal's overlay relies on body's size
+       See https://git.io/fhkJk and https://git.io/fhkJU */
+    min-height: 100vh;
+    /* Fix the issue where medium font-weight (600) doesn't look good on Chrome 121 */
+    font-synthesis: none;
+}
+
+/* INTERACTIVE STYLES */
+
+/* "a" should always have underline when hover to ensure
+   accessibility (eg: hint: this changes url) */
+a {
+    color: #2B95D6;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Although this against web standard, it's necessary for
+   us and also as backward compatible */
+button:not(:disabled),
+select:not(:disabled) {
+    cursor: pointer;
+}
+
+/* Reset outline styles since we will provide these
+   individually in each component */
+button:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+/* Force option to not inherit color from select */
+option {
+    background: #FFFFFF;
+    color: #20394D;
+}
+
+::placeholder {
+    color: #809AAD;
+}
+
+/* Allow mouse events of disabled elements can be captured
+   by their parent. This is necessary to show hint for
+   disabled elements, like using a Tooltip */
+*:disabled {
+    pointer-events: none;
+}
+textarea:disabled {
+    pointer-events: auto;
+}
+
+/* Because it is ugly */
+::-webkit-inner-spin-button {
+    display: none;
+}
+
+/* Custom scrollbar */
+* {
+    scrollbar-width: auto;
+    scrollbar-color: rgba(32, 57, 77, 0.3) transparent;
+}
+
+::-webkit-scrollbar {
+    width: 16px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(32, 57, 77, 0.3);
+    border-radius: 16px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(32, 57, 77, 0.6);
+}
+
+::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Hide the icon of password field on Safari */
+input[type=password]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    height: 0;
+    width: 0;
+    margin: 0;
+}
+
+
+*,
+::before,
+::after {
+  border-width: 0;
+  border-style: solid;
+  @apply border-gray-3;
+}
